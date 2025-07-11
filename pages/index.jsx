@@ -36,7 +36,7 @@ export default function Home() {
  
   return (
     <div
-      className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable} font-poppins p-8`}
+      className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable} font-poppins py-8 px-auto`}
     >
       {/* Judul – hidden saat print */}
       <h1 className="text-3xl font-bold mb-10 text-center print:hidden">
@@ -63,10 +63,10 @@ export default function Home() {
             className="flex flex-col items-center text-center w-36 mx-auto"
           >
             <QRCode value={`https://rfm-app.vercel.app/rfm/${rfm.id}`} size={128} />
-            <p className="mt-2 text-sm text-gray-700 break-words">
+            <p className="mt-3 text-sm break-words">
               {rfm.kode_mesin}
             </p>
-            <p className="text-sm text-gray-700 break-words">
+            <p className="text-sm break-words">
               {rfm.nama_mesin}
             </p>
           </div>
