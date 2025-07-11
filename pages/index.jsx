@@ -25,7 +25,7 @@ export default function Home() {
           data.map((rfm) => (
             <div key={rfm.id} style={{ textAlign: "center" }}>
               <QRCode value={`https://rfm-app.vercel.app/rfm/${rfm.id}`} size={128} />
-              <p style={{ marginTop: "0.5rem" }}>{rfm.no_rfm}</p>
+              <p style={{ marginTop: "0.5rem" }}>{rfm.kode_mesin} - {rfm.nama_mesin}</p>
             </div>
           ))}
       </div>
