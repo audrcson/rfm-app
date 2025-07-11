@@ -1,6 +1,19 @@
 // /pages/rfm/[id].jsx
 import { supabase } from "@/lib/supabase";
 
+import { Geist, Geist_Mono } from "next/font/google";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+
 export async function getServerSideProps(context) {
   const { id } = context.params;
   const { data, error } = await supabase
@@ -20,7 +33,7 @@ export default function RFMDetail({ rfm, error }) {
 
   return (
     <div style={{ padding: "2rem" }}>
-      <h1 className="text-bold ">Request For Maintenance</h1>
+      <h1 className="font-bold text-green-500">Request For Maintenance</h1>
       <p><strong>No RFM:</strong> {rfm.kode_mesin}</p>
       <p><strong>Tanggal Rusak:</strong> {rfm.nama_mesin}</p>
       <p><strong>Tanggal Rusak:</strong> {rfm.no_rfm}</p>
