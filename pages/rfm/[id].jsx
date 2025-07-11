@@ -53,7 +53,7 @@ export default function RFMDetail({ rfm, error }) {
           <strong>No RFM:</strong> {rfm.no_rfm}
         </p>
         <p className="py-2">
-          <strong>Tanggal Kerusakan:</strong> {rfm.tanggal_kerusakan}
+          <strong>Tgl Mesin Rusak / Bermasalah:</strong> {rfm.tanggal_kerusakan}
         </p>
         <p className="py-2">
           <strong>Deskripsi:</strong> {rfm.deskripsi}
