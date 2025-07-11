@@ -45,7 +45,7 @@ export default function Home() {
 
       <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-4 print:hidden">
         <div className="relative w-full md:w-1/3">
-          <FiSearch className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-500" />
+          <FiSearch className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none" />
           <input
             type="text"
             placeholder="Cari kode mesin / nama mesin"
