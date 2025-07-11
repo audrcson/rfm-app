@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <div style={{ padding: "2rem" }}>
-      <h1 className="">QR Code RFM</h1>
+      <h1 className="text-black">QR Code RFM</h1>
 
       {!data && <p>Loading...</p>}
 
