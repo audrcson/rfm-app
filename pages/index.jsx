@@ -36,14 +36,14 @@ export default function Home() {
  
   return (
     <div
-      className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable} font-poppins py-8 px-auto`}
+      className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable} font-poppins p-8`}
     >
       {/* Judul – hidden saat print */}
-      <h1 className="text-3xl font-bold mb-10 text-center print:hidden">
+      <h1 className="text-3xl font-bold mb-10 text-center px-2 print:hidden">
         Request For Maintenance QR Code
       </h1>
 
-      <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-4 px-2 print:hidden">
+      <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-4 print:hidden">
         <div className="relative w-full md:w-1/3">
           <input
             type="text"
@@ -52,7 +52,7 @@ export default function Home() {
             onChange={(e) => setSearch(e.target.value)}
             className="pr-10 pl-4 border py-2 rounded-md w-full"
           />
-          <FiSearch className="w-5 h-5 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none" />
+          <FiSearch className="w-5 h-5 text-gray-500 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none" />
         </div>
       </div>
 
@@ -63,10 +63,10 @@ export default function Home() {
             className="flex flex-col items-center text-center w-36 mx-auto"
           >
             <QRCode value={`https://rfm-app.vercel.app/rfm/${rfm.id}`} size={128} />
-            <p className="mt-3 text-sm break-words">
+            <p className="mt-2 text-sm text-gray-700 break-words">
               {rfm.kode_mesin}
             </p>
-            <p className="text-sm break-words">
+            <p className="text-sm text-gray-700 break-words">
               {rfm.nama_mesin}
             </p>
           </div>
@@ -89,7 +89,7 @@ export default function Home() {
 
 
       {!data && (
-        <p className="print:hidden">Loading…</p>
+        <p className="text-gray-500 print:hidden">Loading…</p>
       )}
     </div>
   );
