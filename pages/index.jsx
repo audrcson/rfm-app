@@ -39,7 +39,7 @@ export default function Home() {
       className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable} font-poppins p-8`}
     >
       {/* Judul – hidden saat print */}
-      <h1 className="text-4xl font-bold mb-10 text-center print:hidden">
+      <h1 className="text-3xl font-bold mb-10 text-center print:hidden">
         Request For Maintenance QR Code
       </h1>
 
