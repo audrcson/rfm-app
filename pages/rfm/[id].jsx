@@ -20,7 +20,7 @@ export default function RFMDetail({ rfm, error }) {
 
   return (
     <div style={{ padding: "2rem" }}>
-      <h1>Detail RFM</h1>
+      <h1 className="text-bold ">Request For Maintenance</h1>
       <p><strong>No RFM:</strong> {rfm.kode_mesin}</p>
       <p><strong>Tanggal Rusak:</strong> {rfm.nama_mesin}</p>
       <p><strong>Tanggal Rusak:</strong> {rfm.no_rfm}</p>
