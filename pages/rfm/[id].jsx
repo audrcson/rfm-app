@@ -32,8 +32,16 @@ export default function RFMDetail({ rfm, error }) {
   if (!rfm) return <p>Data not found</p>;
 
   return (
-    <div className="min-h-screen bg-gray-100 text-green-600 text-3xl font-bold flex items-center justify-center">
-      Tailwind works on [id].jsx ✅
+    <div style={{ padding: "2rem" }}>
+      <h1 className="font-bold text-green-500">Request For Maintenance</h1>
+      <p><strong>No RFM:</strong> {rfm.kode_mesin}</p>
+      <p><strong>Tanggal Rusak:</strong> {rfm.nama_mesin}</p>
+      <p><strong>Tanggal Rusak:</strong> {rfm.no_rfm}</p>
+      <p><strong>Tanggal Rusak:</strong> {rfm.tanggal_kerusakan}</p>
+      <p><strong>Deskripsi:</strong> {rfm.deskripsi}</p>
+      <p><strong>Job Order ID:</strong> {rfm.job_order_id}</p>
+      <p><strong>Rencana Penanganan:</strong> {rfm.date_plan_handling}</p>
+      <p><strong>Aksi Penanganan:</strong> {rfm.action_handling}</p>
     </div>
   );
 }
