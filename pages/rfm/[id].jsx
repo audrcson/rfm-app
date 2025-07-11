@@ -44,7 +44,7 @@ export default function RFMDetail({ rfm, error }) {
 
       {/* Judul */}
       <h1 className="text-center text-xl font-bold text-green-600 mb-4">
-        Request For Maintenance
+        RFM (Request For Maintenance)
       </h1>
 
       {/* List Informasi */}
