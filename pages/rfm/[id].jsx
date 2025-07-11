@@ -59,13 +59,10 @@ export default function RFMDetail({ rfm, error }) {
           <strong>Deskripsi:</strong> {rfm.deskripsi}
         </p>
         <p className="py-2">
-          <strong>Job Order ID:</strong> {rfm.job_order_id}
-        </p>
-        <p className="py-2">
-          <strong>Rencana Penanganan:</strong> {rfm.date_plan_handling}
-        </p>
-        <p className="py-2">
           <strong>Aksi Penanganan:</strong> {rfm.action_handling}
+        </p>
+        <p className="py-2">
+          <strong>No KJB:</strong> {rfm.kjb}
         </p>
       </div>
     </div>
