@@ -43,7 +43,7 @@ export default function Home() {
         Request For Maintenance QR Code
       </h1>
 
-      <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-4 print:hidden">
+      <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-4 px-2 print:hidden">
         <div className="relative w-full md:w-1/3">
           <input
             type="text"
