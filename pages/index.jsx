@@ -52,7 +52,7 @@ export default function Home() {
             onChange={(e) => setSearch(e.target.value)}
             className="pr-10 pl-4 border py-2 rounded-md w-full"
           />
-          <FiSearch className="w-5 h-5 text-gray-500 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none" />
+          <FiSearch className="w-5 h-5 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none" />
         </div>
       </div>
 
@@ -89,7 +89,7 @@ export default function Home() {
 
 
       {!data && (
-        <p className="text-gray-500 print:hidden">Loading…</p>
+        <p className="print:hidden">Loading…</p>
       )}
     </div>
   );
