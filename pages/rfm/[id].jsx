@@ -62,7 +62,7 @@ export default function RFMDetail({ rfm, error }) {
           <strong>Aksi Penanganan:</strong> {rfm.action_handling}
         </p>
         <p className="py-2">
-          <strong>No KJB:</strong> {rfm.kjb}
+          <strong>No KJB:</strong> {rfm.kbj}
         </p>
       </div>
     </div>
