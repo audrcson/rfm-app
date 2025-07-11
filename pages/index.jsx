@@ -45,16 +45,17 @@ export default function Home() {
 
       <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-4 print:hidden">
         <div className="relative w-full md:w-1/3">
+          <FiSearch className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 pointer-events-none text-gray-500" />
           <input
             type="text"
             placeholder="Cari kode mesin / nama mesin"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="pr-10 pl-4 border py-2 rounded-md w-full"
+            className="pl-10 pr-4 border py-2 rounded-md w-full"
           />
-          <FiSearch className="w-5 h-5 text-gray-500 absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none" />
         </div>
       </div>
+
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 print:hidden">
         {filteredData?.map((rfm) => (
@@ -63,10 +64,10 @@ export default function Home() {
             className="flex flex-col items-center text-center w-36 mx-auto"
           >
             <QRCode value={`https://rfm-app.vercel.app/rfm/${rfm.id}`} size={128} />
-            <p className="mt-2 text-sm text-gray-700 break-words">
+            <p className="mt-2 text-sm break-words">
               {rfm.kode_mesin}
             </p>
-            <p className="text-sm text-gray-700 break-words">
+            <p className="text-sm break-words">
               {rfm.nama_mesin}
             </p>
           </div>
@@ -89,7 +90,7 @@ export default function Home() {
 
 
       {!data && (
-        <p className="text-gray-500 print:hidden">Loading…</p>
+        <p className="print:hidden">Loading…</p>
       )}
     </div>
   );
