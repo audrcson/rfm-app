@@ -38,10 +38,7 @@ export default function RFMDetail({ rfm, error }) {
       {/* Bagian Atas: Info Mesin */}
       <div className="mb-4">
         <p className="text-sm text-gray-600">
-          <strong>Kode Mesin:</strong> {rfm.kode_mesin}
-        </p>
-        <p className="text-sm text-gray-600">
-          <strong>Nama Mesin:</strong> {rfm.nama_mesin}
+          <strong>{rfm.kode_mesin} - {rfm.nama_mesin}</strong> 
         </p>
       </div>
 
