@@ -38,7 +38,7 @@ export default function RFMDetail({ rfm, error }) {
   if (!rfm) return <p>Data not found</p>;
 
   return (
-    <div className={`${poppins.variable} font-poppins min-h-screen flex items-center justify-center p-6`}>
+    <div className={`${poppins.variable} font-poppins min-h-screen flex items-center justify-center p-3`}>
       <div className="rounded-xl shadow-md w-full max-w-xl p-6 border border-gray-300">
         
         {/* Bagian Atas: Info Mesin */}
