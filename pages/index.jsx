@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import QRCode from "react-qr-code";
 import { supabase } from "@/lib/supabase";
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
-import { FiSearch } from "react-icons/fi";
+import { FiSearch, FiChevronLeft, FiChevronRight } from "react-icons/fi";
 
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
@@ -106,23 +106,25 @@ useEffect(() => {
 
         {/* Pagination controls */}
         {totalPages > 1 && (
-          <div className="mt-10 flex justify-center items-center gap-4 text-sm print:hidden">
+          <div className="mt-10 flex justify-center items-center gap-2 text-sm print:hidden">
             <button
               onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
               disabled={currentPage === 1}
-              className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded disabled:opacity-50"
+              className="w-8 h-8 flex items-center justify-center cursor-pointer text-gray-800 dark:text-white"
             >
-              &lt;
+              <FiChevronLeft className="w-5 h-5" />
             </button>
 
-            <span className="px-3 font-medium"> {currentPage} / {totalPages}</span>
+            <span className="px-2 font-medium rounded disabled:opacity-50 bg-gray-200 dark:bg-gray-700">
+              {currentPage} / {totalPages}
+            </span>
 
             <button
               onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded disabled:opacity-50"
+              className="w-8 h-8 flex items-center justify-center cursor-pointer"
             >
-              &gt;
+              <FiChevronRight className="w-5 h-5" />
             </button>
           </div>
 

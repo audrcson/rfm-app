@@ -1,7 +1,7 @@
 // /pages/rfm/[id].jsx
 import { supabase } from "@/lib/supabase";
+import { Geist, Geist_Mono, Poppins } from "next/font/google";
 
-import { Geist, Geist_Mono } from "next/font/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -11,6 +11,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const poppins = Poppins({
+  variable: "--font-poppins",
+  subsets: ["latin"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 
@@ -32,23 +38,23 @@ export default function RFMDetail({ rfm, error }) {
   if (!rfm) return <p>Data not found</p>;
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
-      <div className="bg-white rounded-xl shadow-md w-full max-w-xl p-6 border border-gray-300">
+    <div className="min-h-screen flex items-center justify-center p-6">
+      <div className="rounded-xl shadow-md w-full max-w-xl p-6 border border-gray-300">
         
         {/* Bagian Atas: Info Mesin */}
         <div className="mb-4">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm">
             <strong>{rfm.kode_mesin} - {rfm.nama_mesin}</strong> 
           </p>
         </div>
 
         {/* Judul */}
-        <h1 className="text-center text-xl font-bold text-green-600 mb-4">
+        <h1 className="text-center text-xl font-bold mb-4">
           RFM (Request For Maintenance)
         </h1>
 
         {/* List Informasi */}
-        <div className="divide-y divide-gray-300 text-gray-700 text-sm">
+        <div className="divide-y divide-gray-300 text-sm">
           <p className="py-2">
             <strong>No. RFM:</strong> {rfm.no_rfm}
           </p>
