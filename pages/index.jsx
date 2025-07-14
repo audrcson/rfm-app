@@ -13,10 +13,30 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
-
 export default function Home() {
   const [data, setData] = useState(null);
   const [search, setSearch] = useState("");
+
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  
+  const [itemsPerPage, setItemsPerPage] = useState(20); // default laptop
+
+useEffect(() => {
+  const handleResize = () => {
+    const width = window.innerWidth;
+    if (width < 640) {
+      setItemsPerPage(6); // mobile
+    } else {
+      setItemsPerPage(10); // tablet/laptop
+    }
+  };
+
+  handleResize(); // set awal
+  window.addEventListener("resize", handleResize); // update saat resize
+  return () => window.removeEventListener("resize", handleResize);
+}, []);
+
 
   
   useEffect(() => {
@@ -33,7 +53,16 @@ export default function Home() {
       .includes(search.toLowerCase())
   );
 
- 
+  
+  const totalPages = Math.ceil((filteredData?.length || 0) / itemsPerPage);
+  const paginatedData = filteredData?.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
+
+  
+  useEffect(() => setCurrentPage(1), [search]);
+
   return (
     <div
       className={`${poppins.variable} ${geistSans.variable} ${geistMono.variable} font-poppins p-8`}
@@ -56,25 +85,51 @@ export default function Home() {
         </div>
       </div>
 
-
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 print:hidden">
-        {filteredData?.map((rfm) => (
-          <div
-            key={rfm.id}
-            className="flex flex-col items-center text-center w-36 mx-auto"
-          >
-            <QRCode value={`https://rfm-app.vercel.app/rfm/${rfm.id}`} size={128} />
+      <div className="max-w-5xl mx-auto print:hidden">
+        {/* Grid QR */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 items-start">
+          {paginatedData?.map((rfm) => (
+            <div
+              key={rfm.id}
+              className="flex flex-col items-center text-center w-36 mx-auto"
+            >
+              <QRCode value={`https://rfm-app.vercel.app/rfm/${rfm.id}`} size={128} />
             <p className="mt-2 text-sm break-words">
               {rfm.kode_mesin}
             </p>
             <p className="text-sm break-words">
               {rfm.nama_mesin}
             </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Pagination controls */}
+        {totalPages > 1 && (
+          <div className="mt-10 flex justify-center items-center gap-4 text-sm print:hidden">
+            <button
+              onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
+              disabled={currentPage === 1}
+              className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded disabled:opacity-50"
+            >
+              &lt;
+            </button>
+
+            <span className="px-3 font-medium"> {currentPage} / {totalPages}</span>
+
+            <button
+              onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
+              disabled={currentPage === totalPages}
+              className="w-8 h-8 flex items-center justify-center bg-gray-200 rounded disabled:opacity-50"
+            >
+              &gt;
+            </button>
           </div>
-        ))}
+
+        )}
       </div>
 
-      
+
       <div className="hidden print:block">
         {filteredData?.map((rfm, idx) => (
           <div
@@ -88,7 +143,7 @@ export default function Home() {
         ))}
       </div>
 
-
+      
       {!data && (
         <p className="print:hidden">Loading…</p>
       )}
