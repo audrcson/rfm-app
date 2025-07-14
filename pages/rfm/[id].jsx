@@ -65,7 +65,7 @@ export default function RFMDetail({ rfm, error }) {
             <strong>Deskripsi:</strong> {rfm.deskripsi}
           </p>
           <p className="py-2">
-            <strong>No. KJB:</strong> {rfm.kbj}
+            <strong>No. KBJ:</strong> {rfm.kbj}
           </p>
         </div>
       </div>
