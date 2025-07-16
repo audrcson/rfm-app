@@ -116,7 +116,7 @@ export default function Home() {
             <button
               onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
               disabled={currentPage === 1}
-              className="w-8 h-8 flex items-center justify-center"
+              className="w-8 h-8 flex items-center justify-center cursor-pointer"
             >
               <FiChevronLeft className="w-5 h-5" />
             </button>
@@ -128,7 +128,7 @@ export default function Home() {
             <button
               onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
               disabled={currentPage === totalPages}
-              className="w-8 h-8 flex items-center justify-center"
+              className="w-8 h-8 flex items-center justify-center cursor-pointer"
             >
               <FiChevronRight className="w-5 h-5" />
             </button>
