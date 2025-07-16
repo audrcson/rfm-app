@@ -64,9 +64,14 @@ export default function RFMDetail({ rfm, error }) {
           <p className="py-2">
             <strong>Deskripsi:</strong> {rfm.deskripsi}
           </p>
-          <p className="py-2">
-            <strong>No. KBJ:</strong> {rfm.kbj}
-          </p>
+          <div className="py-2">
+            <strong>No. KBJ:</strong>
+            <ol className="list-decimal list-inside mt-1">
+              {rfm.kbj?.split(",").map((item, idx) => (
+                <li key={idx}>{item.trim()}</li>
+              ))}
+            </ol>
+          </div>
         </div>
       </div>
     </div>
